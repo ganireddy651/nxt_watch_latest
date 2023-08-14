@@ -1,5 +1,11 @@
+import Header from '../Header'
 import './index.css'
 
-const Gaming = () => <h1>Gaming</h1>
+const Gaming = () => (
+  <>
+    <Header />
+    <h1>Gaming</h1>
+  </>
+)
 
 export default Gaming

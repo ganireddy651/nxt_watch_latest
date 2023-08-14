@@ -1,5 +1,11 @@
+import Header from '../Header'
 import './index.css'
 
-const VideoItemDetails = () => <h1>VideoItemDetails </h1>
+const VideoItemDetails = () => (
+  <>
+    <Header />
+    <h1>Video Item</h1>
+  </>
+)
 
 export default VideoItemDetails

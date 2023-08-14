@@ -1,5 +1,11 @@
+import Header from '../Header'
 import './index.css'
 
-const Trending = () => <h1>Trending</h1>
+const Trending = () => (
+  <>
+    <Header />
+    <h1>Trending</h1>
+  </>
+)
 
 export default Trending

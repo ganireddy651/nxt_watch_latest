@@ -27,7 +27,12 @@
   outline: none;
   margin-right: 20px;
 }
-.theme-icon {
+.dark-theme-icon {
+  height: 30px;
+  width: 30px;
+  color: #ffffff;
+}
+.light-theme-icon {
   height: 30px;
   width: 30px;
 }
