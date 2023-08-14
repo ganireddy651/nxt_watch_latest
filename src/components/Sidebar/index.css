@@ -1,6 +1,10 @@
 .sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
   padding: 10px;
-  width: 20%;
+  width: 25%;
 }
 .home-tab-container {
   display: flex;
@@ -11,5 +15,21 @@
   margin-left: 20px;
 }
 .contact-us-container {
-  position: bottom;
+  display: flex;
+  flex-direction: column;
+}
+.social-icons {
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+}
+.contact-us-heading {
+  font-size: 20px;
+  color: #1e293b;
+}
+.sidebar-description {
+}
+.link {
+  text-decoration: none;
+  color: #000000;
 }
