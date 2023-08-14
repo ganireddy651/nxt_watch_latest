@@ -1,0 +1,81 @@
+.Log-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.login-form-container {
+  width: 450px;
+  padding: 30px;
+  box-shadow: 1px 1px 2px 2px #bfbfbf;
+  border-radius: 5px;
+}
+.website-logo-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.website-logo {
+  height: 40px;
+  width: 150px;
+}
+.username-container {
+  margin-bottom: 20px;
+}
+.username-label {
+  color: #475569;
+  font-weight: 600;
+}
+.login-username-input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid #94a3b8;
+  padding: 10px;
+  outline: none;
+  border-radius: 3px;
+  margin-top: 3px;
+}
+.password-container {
+  margin-bottom: 10px;
+}
+.password-label {
+  color: #475569;
+  font-weight: 600;
+}
+.login-password-input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid #94a3b8;
+  padding: 10px;
+  outline: none;
+  border-radius: 3px;
+  margin-top: 3px;
+}
+.show-password-container {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+.login-checkbox {
+  height: 16px;
+  width: 16px;
+  margin-right: 5px;
+}
+.show-password-label {
+  font-weight: 600;
+  font-size: 16px;
+}
+.log-in-button {
+  background-color: #3b82f6;
+  height: 42px;
+  width: 100%;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 16px;
+}
+.login-error-message {
+  margin: 0;
+  color: #ff0b37;
+  font-weight: 600;
+}
