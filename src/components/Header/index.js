@@ -1,3 +1,5 @@
+import {MdDarkMode} from 'react-icons/md'
+import LogOut from '../LogOut'
 import './index.css'
 
 const Header = props => {
@@ -17,7 +19,15 @@ const Header = props => {
         className="website-logo"
       />
       <div className="nav-items">
-        <button type="button">{}</button>
+        <button type="button" className="theme-button">
+          <MdDarkMode className="theme-icon" />
+        </button>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
+          alt="profile"
+          className="logout-profile-image"
+        />
+        <LogOut />
       </div>
     </nav>
   )

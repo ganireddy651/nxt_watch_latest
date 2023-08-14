@@ -52,7 +52,7 @@ const LogIn = props => {
   }
 
   const onClickShowPassword = () => {
-    setIsClicked(prevState => !prevState.isClicked)
+    setIsClicked(prevState => !prevState)
   }
 
   const inputType = isClicked ? 'text' : 'password'

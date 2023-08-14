@@ -1,8 +1,33 @@
 .light-bg-navbar {
   background-color: #ffffff;
   padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .dark-bg-navbar {
   background-color: #181818;
   padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-items {
+  display: flex;
+  align-items: center;
+}
+.logout-profile-image {
+  height: 30px;
+  width: 30px;
+  margin-right: 20px;
+}
+.theme-button {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  margin-right: 20px;
+}
+.theme-icon {
+  height: 30px;
+  width: 30px;
 }
