@@ -1,0 +1,31 @@
+.trending-video-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+.trending-thumbnail {
+  width: 350px;
+  height: 200px;
+}
+.trending-light-theme-title {
+  color: #1e293b;
+  font-size: 24px;
+  margin: 0;
+}
+.trending-dark-theme-title {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 0;
+}
+.trending-video-details {
+  margin-left: 15px;
+}
+.trending-name {
+  color: #64748b;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.trending-view-count {
+  color: #64748b;
+  margin-top: 8px;
+  margin-bottom: 0;
+}

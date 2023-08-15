@@ -1,0 +1,12 @@
+.trending-icon {
+  color: #ff0000;
+  font-size: 30px;
+}
+.trending-section-container {
+  background-color: #cccccc;
+  width: 75%;
+}
+.trending-list-container {
+  padding: 30px;
+  list-style: none;
+}
