@@ -2,7 +2,7 @@ import ThemeContext from '../../context/ThemeContext'
 import './index.css'
 
 const Failure = props => {
-  const {getVideosData, getTrendingVideos, getGamingVideos} = props
+  const {getVideosData, getTrendingVideos, getGamingVideos, getVideo} = props
   return (
     <ThemeContext.Consumer>
       {value => {
@@ -16,6 +16,7 @@ const Failure = props => {
           getVideosData()
           getTrendingVideos()
           getGamingVideos()
+          getVideo()
         }
 
         return (

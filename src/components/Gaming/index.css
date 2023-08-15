@@ -1,0 +1,6 @@
+.gaming-list-container {
+  list-style: none;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}

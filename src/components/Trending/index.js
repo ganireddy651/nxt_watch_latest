@@ -108,10 +108,6 @@ class Trending extends Component {
         {value => {
           const {isDark} = value
 
-          const trendingVideosContainer = isDark
-            ? 'trending-dark-videos-container'
-            : 'trending-light-videos-container'
-
           return (
             <>
               <Header />

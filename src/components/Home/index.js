@@ -28,7 +28,7 @@ class Home extends Component {
     this.setState({apiStatus: apiConstraints.in_progress})
     const token = Cookies.get('jwt_token')
     const allUrl = `https://apis.ccbp.in/videos/all`
-    console.log(allUrl)
+
     const options = {
       method: 'GET',
       headers: {
@@ -64,7 +64,7 @@ class Home extends Component {
   onSearch = async () => {
     const {userSearch} = this.state
     const url = `https://apis.ccbp.in/videos/all?search=${userSearch}`
-    console.log(url)
+
     this.setState({apiStatus: apiConstraints.in_progress})
     const token = Cookies.get('jwt_token')
     const options = {

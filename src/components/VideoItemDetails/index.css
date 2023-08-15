@@ -1,0 +1,12 @@
+.video-details-container {
+  display: flex;
+  margin: 0;
+}
+.video-item {
+  background-color: #cccccc;
+  min-height: 100vh;
+  width: 75%;
+}
+.video-item {
+  padding: 20px;
+}

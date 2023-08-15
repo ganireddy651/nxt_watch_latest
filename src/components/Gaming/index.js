@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
-import {BiSolidHot} from 'react-icons/bi'
 import {SiYoutubegaming} from 'react-icons/si'
 import Cookies from 'js-cookie'
 import Header from '../Header'
@@ -23,7 +22,7 @@ const apiConstraints = {
   failure: 'FAILURE',
 }
 
-class Trending extends Component {
+class Gaming extends Component {
   state = {apiStatus: apiConstraints.initial, gamingVideosArray: []}
 
   componentDidMount() {
@@ -51,6 +50,7 @@ class Trending extends Component {
         viewCount: eachGamingvideo.view_count,
         title: eachGamingvideo.title,
       }))
+
       this.setState({
         apiStatus: apiConstraints.success,
         gamingVideosArray: updatedData,
@@ -68,12 +68,13 @@ class Trending extends Component {
 
   renderSuccessView = () => {
     const {gamingVideosArray} = this.state
+
     return (
-      <ul className="trending-list-container">
-        {gamingVideosArray.map(trendingVideos => (
+      <ul className="gaming-list-container">
+        {gamingVideosArray.map(eachGamingVideo => (
           <GamingVideos
-            trendingVideos={trendingVideos}
-            key={trendingVideos.id}
+            eachGamingVideo={eachGamingVideo}
+            key={eachGamingVideo.id}
           />
         ))}
       </ul>
@@ -126,4 +127,4 @@ class Trending extends Component {
   }
 }
 
-export default Trending
+export default Gaming

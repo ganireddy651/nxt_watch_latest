@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 import ThemeContext from '../../context/ThemeContext'
 import './index.css'
@@ -23,11 +24,13 @@ const VideosList = props => (
 
       return (
         <li className="video-card">
-          <img
-            src={thumbnailUrl}
-            alt="video thumbnail"
-            className="video-thumbnail-image"
-          />
+          <Link to={`/videos/${id}`}>
+            <img
+              src={thumbnailUrl}
+              alt="video thumbnail"
+              className="video-thumbnail-image"
+            />
+          </Link>
           <div className="video-details-container">
             <img
               src={profileImageUrl}

@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 import ThemeContext from '../../context/ThemeContext'
 import './index.css'
@@ -24,11 +25,13 @@ const TrendingVideos = props => (
 
       return (
         <li className="trending-video-item">
-          <img
-            className="trending-thumbnail"
-            src={thumbnailUrl}
-            alt="trending"
-          />
+          <Link to={`/videos/${id}`}>
+            <img
+              className="trending-thumbnail"
+              src={thumbnailUrl}
+              alt="trending"
+            />
+          </Link>
           <div className="trending-video-details">
             <h1 className={trendingVideoHeading}>{title}</h1>
             <p className="trending-name">{name}</p>
