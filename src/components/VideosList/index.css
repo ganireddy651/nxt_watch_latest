@@ -1,0 +1,39 @@
+.video-card {
+  width: 300px;
+  margin: 20px;
+}
+.video-thumbnail-image {
+  width: 100%;
+  height: 160px;
+}
+.channel-logo {
+  height: 40px;
+  width: 40px;
+}
+.video-details-container {
+  display: flex;
+  margin-top: 10px;
+}
+.light-theme-title {
+  color: #1e293b;
+  font-size: 14px;
+  margin: 0;
+}
+.dark-theme-title {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0;
+}
+.video-details {
+  margin-left: 15px;
+}
+.name {
+  color: #64748b;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.view-count {
+  color: #64748b;
+  margin-top: 8px;
+  margin-bottom: 0;
+}

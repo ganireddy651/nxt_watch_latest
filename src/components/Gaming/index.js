@@ -1,10 +1,14 @@
 import Header from '../Header'
+import Sidebar from '../Sidebar'
 import './index.css'
 
 const Gaming = () => (
   <>
     <Header />
-    <h1>Gaming</h1>
+    <div className="app-home">
+      <Sidebar />
+      <h1>Gaming</h1>
+    </div>
   </>
 )
 
