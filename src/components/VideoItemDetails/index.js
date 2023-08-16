@@ -6,11 +6,10 @@ import {BsFileEarmarkCheck, BsDot} from 'react-icons/bs'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import Failure from '../Failure'
-import SavedVideos from '../SavedVideos'
 import ThemeContext from '../../context/ThemeContext'
 import VideoPlayer from '../VideoPlayer'
 import Sidebar from '../Sidebar'
-import SavedVideoContext from '../../context/SavedVideoContext'
+// import SavedVideoContext from '../../context/SavedVideoContext'
 import {VideoContainer, VideoHeading, Paragraph} from './StyledComponents'
 import './index.css'
 
@@ -27,7 +26,6 @@ class VideoItemDetails extends Component {
     videoDetails: {},
     onLike: false,
     onDislike: false,
-    onSave: false,
     savedVideo: [],
   }
 
@@ -213,7 +211,7 @@ class VideoItemDetails extends Component {
   }
 
   render() {
-    const {savedVideo, onSave} = this.state
+    // const {savedVideo, onSave} = this.state
     return (
       <>
         <Header />

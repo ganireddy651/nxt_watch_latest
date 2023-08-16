@@ -2,6 +2,7 @@ import ThemeContext from '../../context/ThemeContext'
 import './index.css'
 
 const Failure = props => {
+  console.log(props)
   const {getVideosData, getTrendingVideos, getGamingVideos, getVideo} = props
   return (
     <ThemeContext.Consumer>
@@ -19,6 +20,8 @@ const Failure = props => {
           getVideo()
         }
 
+        const failureHeading = isDark && 'dark-mode-heading'
+
         return (
           <div className="failure-container">
             <img
@@ -26,7 +29,9 @@ const Failure = props => {
               alt="failure logo"
               className="failure-image"
             />
-            <h1 className="failure-heading">Oops! Something Went Wrong</h1>
+            <h1 className={`failure-heading ${failureHeading}`}>
+              Oops! Something Went Wrong
+            </h1>
             <p className="failure-description">
               We are having some trouble to complete your request. please try
               again.

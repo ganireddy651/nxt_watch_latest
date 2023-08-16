@@ -11,9 +11,17 @@
   padding: 20px;
   height: 50vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
   background-size: cover;
+}
+.cross-button {
+  background-color: transparent;
+  border: 0;
+}
+.cross-icon {
+  height: 20px;
+  width: 20px;
 }
 .banner-heading {
   color: #1e293b;
@@ -82,4 +90,7 @@
 }
 .no-search-results {
   color: #ffffff;
+}
+.hide-banner {
+  display: none;
 }

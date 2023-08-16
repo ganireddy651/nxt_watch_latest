@@ -8,6 +8,7 @@ import Gaming from './components/Gaming'
 import SavedVideos from './components/SavedVideos'
 import VideoItemDetails from './components/VideoItemDetails'
 import NotFound from './components/NotFound'
+import SavedVideoContext from './context/SavedVideoContext'
 import ProtectedRoute from './components/ProtectedRoute'
 
 import ThemeContext from './context/ThemeContext'
@@ -15,7 +16,7 @@ import ThemeContext from './context/ThemeContext'
 import './App.css'
 
 class App extends Component {
-  state = {isDark: false}
+  state = {isDark: false, onSave: false}
 
   changeTheme = () => {
     this.setState(prevState => ({
@@ -23,25 +24,39 @@ class App extends Component {
     }))
   }
 
+  onSaveVideo = () => {
+    this.setState(prevState => ({
+      onSave: !prevState.onSave,
+    }))
+  }
+
   render() {
-    const {isDark} = this.state
+    const {isDark, onSave} = this.state
 
     return (
-      <ThemeContext.Provider value={{isDark, changeTheme: this.changeTheme}}>
-        <Switch>
-          <Route exact path="/login" component={LogIn} />
-          <ProtectedRoute exact path="/" component={Home} />
-          <ProtectedRoute exact path="/trending" component={Trending} />
-          <ProtectedRoute exact path="/gaming" component={Gaming} />
-          <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
-          <ProtectedRoute
-            exact
-            path="/videos/:id"
-            component={VideoItemDetails}
-          />
-          <Route component={NotFound} />
-        </Switch>
-      </ThemeContext.Provider>
+      <SavedVideoContext.Provider
+        value={{onSave, onSaveVideo: this.onSaveVideo}}
+      >
+        <ThemeContext.Provider value={{isDark, changeTheme: this.changeTheme}}>
+          <Switch>
+            <Route exact path="/login" component={LogIn} />
+            <ProtectedRoute exact path="/" component={Home} />
+            <ProtectedRoute exact path="/trending" component={Trending} />
+            <ProtectedRoute exact path="/gaming" component={Gaming} />
+            <ProtectedRoute
+              exact
+              path="/saved-videos"
+              component={SavedVideos}
+            />
+            <ProtectedRoute
+              exact
+              path="/videos/:id"
+              component={VideoItemDetails}
+            />
+            <Route component={NotFound} />
+          </Switch>
+        </ThemeContext.Provider>
+      </SavedVideoContext.Provider>
     )
   }
 }

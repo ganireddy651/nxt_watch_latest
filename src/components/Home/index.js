@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import {AiOutlineSearch} from 'react-icons/ai'
+import {RxCross2} from 'react-icons/rx'
 import Cookies from 'js-cookie'
 import ThemeContext from '../../context/ThemeContext'
 import Sidebar from '../Sidebar'
@@ -18,7 +19,12 @@ const apiConstraints = {
 }
 
 class Home extends Component {
-  state = {userSearch: '', apiStatus: apiConstraints.initial, videosArray: []}
+  state = {
+    userSearch: '',
+    apiStatus: apiConstraints.initial,
+    videosArray: [],
+    isClicked: false,
+  }
 
   componentDidMount() {
     this.getVideosData()
@@ -155,7 +161,15 @@ class Home extends Component {
     }
   }
 
+  onDelete = () => {
+    this.setState({isClicked: true})
+  }
+
   render() {
+    const {isClicked} = this.state
+
+    const homeBanner = isClicked ? 'hide-banner' : 'banner-container'
+
     return (
       <ThemeContext.Consumer>
         {value => {
@@ -170,7 +184,7 @@ class Home extends Component {
                   isDark={isDark}
                   className="home-container"
                 >
-                  <div className="banner-container">
+                  <div className={homeBanner}>
                     <div>
                       <img
                         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
@@ -184,6 +198,13 @@ class Home extends Component {
                         GET IT NOW
                       </button>
                     </div>
+                    <button
+                      type="button"
+                      className="cross-button"
+                      onClick={this.onDelete}
+                    >
+                      <RxCross2 className="cross-icon" />
+                    </button>
                   </div>
                   <div className="search-container">
                     <input

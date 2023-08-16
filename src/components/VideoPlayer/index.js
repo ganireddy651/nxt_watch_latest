@@ -2,22 +2,11 @@ import ReactPlayer from 'react-player'
 import './index.css'
 
 const VideoPlayer = props => {
-  const {videoUrl, thumbnailUrl} = props
+  const {videoUrl} = props
   return (
     <div className="video-container">
       <div className="responsive-container">
-        <ReactPlayer
-          width="100%"
-          height="560px"
-          light={
-            <img
-              src={thumbnailUrl}
-              style={{width: '100%', height: '560px'}}
-              alt="Thumbnail"
-            />
-          }
-          url={videoUrl}
-        />
+        <ReactPlayer width="100%" height="560px" url={videoUrl} />
       </div>
     </div>
   )
