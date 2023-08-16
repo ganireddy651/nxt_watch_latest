@@ -26,7 +26,6 @@ class VideoItemDetails extends Component {
     videoDetails: {},
     onLike: false,
     onDislike: false,
-    savedVideo: [],
   }
 
   componentDidMount() {
@@ -85,113 +84,115 @@ class VideoItemDetails extends Component {
     }))
   }
 
-  onSaveVideo = () => {
-    const {videoDetails} = this.state
-    const {thumbnailUrl, title, name, viewCount, publishedAt} = videoDetails
-
-    const newlySavedVideo = {
-      thumbnailUrl,
-      title,
-      viewCount,
-      name,
-      publishedAt,
-    }
-
-    this.setState(prevState => ({
-      onSave: !prevState.onSave,
-      savedVideo: [...prevState.savedVideo, newlySavedVideo],
-    }))
-  }
-
   renderLoaderView = () => (
     <div className="loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ff0000" height="50" width="50" />
     </div>
   )
 
-  renderSuccessView = isDark => {
-    const {videoDetails, onLike, onDislike, onSave} = this.state
-    const {
-      videoUrl,
-      thumbnailUrl,
-      description,
-      publishedAt,
-      viewCount,
-      title,
-      profileImageUrl,
-      subscriberCount,
-      name,
-    } = videoDetails
+  renderSuccessView = isDark => (
+    <ThemeContext.Consumer>
+      {value => {
+        const {videoDetails, onLike, onDislike} = this.state
+        const {onSave, onSaveVideo} = value
+        const {
+          videoUrl,
+          thumbnailUrl,
+          description,
+          publishedAt,
+          viewCount,
+          title,
+          profileImageUrl,
+          subscriberCount,
+          name,
+          id,
+        } = videoDetails
 
-    const postTime = formatDistanceToNow(new Date(publishedAt))
+        const postTime = formatDistanceToNow(new Date(publishedAt))
 
-    const likeClassName = onLike && 'clicked'
+        const likeClassName = onLike && 'clicked'
 
-    const disLikeClassName = onDislike && 'clicked'
+        const disLikeClassName = onDislike && 'clicked'
 
-    const savedClassName = onSave && 'clicked'
+        const savedClassName = onSave && 'clicked'
 
-    const saveButtonText = onSave ? 'Saved' : 'Save'
+        const saveButtonText = onSave ? 'Saved' : 'Save'
 
-    return (
-      <div className="video-section-container">
-        <VideoPlayer videoUrl={videoUrl} thumbnailUrl={thumbnailUrl} />
-        <div className="video-info-container">
-          <VideoHeading isDark={isDark}>{title}</VideoHeading>
-          <div className="count-container">
-            <div className="view-count-container">
-              <p className="video-count-details">{viewCount} views</p>
-              <BsDot className="span-text" />
-              <p className="video-count-details">{postTime.slice(6, 15)} ago</p>
+        const onVideoSaved = () => {
+          const vedioDetails = {
+            thumbnailUrl,
+            publishedAt,
+            viewCount,
+            title,
+            name,
+            id,
+          }
+          onSaveVideo(vedioDetails)
+        }
+
+        return (
+          <div className="video-section-container">
+            <VideoPlayer videoUrl={videoUrl} thumbnailUrl={thumbnailUrl} />
+            <div className="video-info-container">
+              <VideoHeading isDark={isDark}>{title}</VideoHeading>
+              <div className="count-container">
+                <div className="view-count-container">
+                  <p className="video-count-details">{viewCount} views</p>
+                  <BsDot className="span-text" />
+                  <p className="video-count-details">
+                    {postTime.slice(6, 15)} ago
+                  </p>
+                </div>
+                <div className="impressions-container">
+                  <button
+                    type="button"
+                    className={`like-dislike-save-button ${likeClassName}`}
+                    onClick={this.onLike}
+                  >
+                    <BiLike className="like-dislike-save" />
+                    <span className="like">Like</span>
+                  </button>
+                  <button
+                    type="button"
+                    className={`like-dislike-save-button ${disLikeClassName}`}
+                    onClick={this.onDislike}
+                  >
+                    <BiDislike className="like-dislike-save" />
+                    <span className="like">Dislike</span>
+                  </button>
+                  <button
+                    type="button"
+                    className={`like-dislike-save-button ${savedClassName}`}
+                    onClick={onVideoSaved}
+                  >
+                    <BsFileEarmarkCheck className="like-dislike-save" />
+                    <span className="like">{saveButtonText}</span>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="impressions-container">
-              <button
-                type="button"
-                className={`like-dislike-save-button ${likeClassName}`}
-                onClick={this.onLike}
-              >
-                <BiLike className="like-dislike-save" />
-                <span className="like">Like</span>
-              </button>
-              <button
-                type="button"
-                className={`like-dislike-save-button ${disLikeClassName}`}
-                onClick={this.onDislike}
-              >
-                <BiDislike className="like-dislike-save" />
-                <span className="like">Dislike</span>
-              </button>
-              <button
-                type="button"
-                className={`like-dislike-save-button ${savedClassName}`}
-                onClick={this.onSaveVideo}
-              >
-                <BsFileEarmarkCheck className="like-dislike-save" />
-                <span className="like">{saveButtonText}</span>
-              </button>
+            <hr />
+            <div className="channel-info-container">
+              <img
+                src={profileImageUrl}
+                alt="channel logo"
+                className="channel-logo"
+              />
+              <div className="channel-details-container">
+                <VideoHeading isDark={isDark}>{name}</VideoHeading>
+                <p className="subscribers-count-details">
+                  {subscriberCount} Subscribers
+                </p>
+                <div className="comment-container">
+                  <Paragraph isDark={isDark}>{description}</Paragraph>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-        <div className="channel-info-container">
-          <img
-            src={profileImageUrl}
-            alt="channel logo"
-            className="channel-logo"
-          />
-          <div className="channel-details-container">
-            <VideoHeading isDark={isDark}>{name}</VideoHeading>
-            <p className="subscribers-count-details">
-              {subscriberCount} Subscribers
-            </p>
-            <div className="comment-container">
-              <Paragraph isDark={isDark}>{description}</Paragraph>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+        )
+      }}
+    </ThemeContext.Consumer>
+  )
 
   renderFailureView = () => <Failure getVideo={this.getVideo} />
 

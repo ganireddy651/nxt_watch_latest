@@ -1,25 +1,29 @@
+import {BiSolidHot} from 'react-icons/bi'
 import Header from '../Header'
 import Sidebar from '../Sidebar'
-// import SavedVideoContext from '../../context/SavedVideoContext'
 import ThemeContext from '../../context/ThemeContext'
-import {SavedVideosSection, NoVideosHeading} from './StyledComponents'
+import SavedVideoList from '../SavedVideoList'
+import {
+  SavedVideosSection,
+  NoVideosHeading,
+  TrendingBackground,
+  TrendingContainer,
+  TrendingHeading,
+} from './StyledComponents'
 import './index.css'
 
-const SavedVideos = props => {
-  const {eachItem} = props
-  console.log(eachItem)
+const SavedVideos = () => (
+  <>
+    <Header />
+    <ThemeContext.Consumer>
+      {value => {
+        const {isDark, savedVideo, onSave} = value
 
-  return (
-    <>
-      <Header />
-      <ThemeContext.Consumer>
-        {value => {
-          const {isDark} = value
-
-          return (
-            <div className="app-home">
-              <Sidebar />
-              <SavedVideosSection isDark={isDark}>
+        return (
+          <div className="app-home">
+            <Sidebar />
+            <SavedVideosSection isDark={isDark}>
+              {savedVideo.length === 0 ? (
                 <div className="no-saved-videos-container">
                   <img
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png "
@@ -33,12 +37,29 @@ const SavedVideos = props => {
                     You can save your videos while watching them
                   </p>
                 </div>
-              </SavedVideosSection>
-            </div>
-          )
-        }}
-      </ThemeContext.Consumer>
-    </>
-  )
-}
+              ) : (
+                <>
+                  <TrendingBackground isDark={isDark}>
+                    <TrendingContainer isDark={isDark}>
+                      <BiSolidHot className="trending-icon" />
+                    </TrendingContainer>
+                    <TrendingHeading isDark={isDark}>
+                      Saved Videos
+                    </TrendingHeading>
+                  </TrendingBackground>
+                  <ul className="saved-list-container">
+                    {savedVideo.map(eachItem => (
+                      <SavedVideoList eachItem={eachItem} key={eachItem.id} />
+                    ))}
+                  </ul>
+                </>
+              )}
+              <p>{}</p>
+            </SavedVideosSection>
+          </div>
+        )
+      }}
+    </ThemeContext.Consumer>
+  </>
+)
 export default SavedVideos

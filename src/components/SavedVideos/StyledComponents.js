@@ -29,5 +29,14 @@ export const NoVideosHeading = styled.h1`
 export const SavedVideosSection = styled.div`
   background-color: ${props => (props.isDark ? '#000000' : '#ebebeb')};
   width: 75%;
-  padding: 20px;
+`
+
+export const TrendingHeading = styled.h1`
+  font-weight: 700;
+  color: ${props => (props.isDark ? '#ffffff' : '#1e293b')};
+  font-size: 35px;
+`
+export const TrendingVideosSection = styled.div`
+  background-color: ${props => (props.isDark ? '#000000' : '#ebebeb')};
+  width: 75%;
 `
