@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HomeBackGroundContainer = styled.div`
-  background-color: ${props => (props.isDark ? '#000000' : '#f1f5f9')};
+  background-color: ${props => (props.isDark ? '#000000' : '#ebebeb')};
 `
 
 export const Para = styled.p`

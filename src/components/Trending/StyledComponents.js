@@ -27,6 +27,6 @@ export const TrendingHeading = styled.h1`
   font-size: 35px;
 `
 export const TrendingVideosSection = styled.div`
-  background-color: ${props => (props.isDark ? '#000000' : '#cccccc')};
+  background-color: ${props => (props.isDark ? '#000000' : '#ebebeb')};
   width: 75%;
 `

@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 import {MdDarkMode, MdOutlineLightMode} from 'react-icons/md'
 import ThemeContext from '../../context/ThemeContext'
 import LogOut from '../LogOut'
@@ -26,11 +27,13 @@ class Header extends Component {
 
           return (
             <nav className={navbarBackground}>
-              <img
-                src={toggleWebsiteLogo}
-                alt="website logo"
-                className="website-logo"
-              />
+              <Link to="/">
+                <img
+                  src={toggleWebsiteLogo}
+                  alt="website logo"
+                  className="website-logo"
+                />
+              </Link>
               <div className="nav-items">
                 <button
                   type="button"
